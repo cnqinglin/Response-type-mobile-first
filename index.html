@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>移动页面demo（响应式隐藏元素）</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+    *{
+        margin:0px;
+        padding: 0px;
+    }
+    a{
+        color: inherit;
+        text-decoration: none;
+    }
+    ul,ol{
+        list-style: none;
+    }
+    header{
+        padding:10px;
+        position: relative;
+    }
+    header > button{
+        position: absolute;
+        right: 0;
+        top:26px;
+    }
+    /*默认不显示，因为mobile first*/
+    .nav2{
+        display: none;
+    }
+    /*移动端pc端切换*/
+    @media(min-width:451px){   /*pc查询 */
+        header > button{
+            display: none;
+        }
+        .nav{
+            display: none!important;
+        }
+        .nav2{
+            display: block; 
+        }
+        /*pc相关的都写在媒体查询里面*/
+        header{
+            display: flex;
+            align-items: center;   /*自动与logo水平对齐*/
+        }
+        header > .nav2{
+            display: flex;   /*自动与logo左右对齐*/
+            margin-left: 20px;
+             
+        }
+        header > .nav2 > li{
+            margin: 0px 10px; 
+        }
+    }
+    .logo{
+        width: 60px;
+        height: 60px;
+        background: gray;
+        border-radius: 30px;
+    }
+    .clearfix::after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+    /*js不要改状态*/
+    .nav{
+        display: none;
+        background: gray;
+        margin-top: 10px;
+    }
+    .nav.active{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    </style>
+</head>
+<body>
+    <header>
+      <!--移动端-->
+        <div class="logo"></div>
+        <button id="xx">菜单</button>
+        <ul id="yy" class="nav">
+            <li><a href="#">导航1</a></li>
+            <li><a href="#">导航2</a></li>
+            <li><a href="#">导航3</a></li>
+            <li><a href="#">导航4</a></li>
+            <li><a href="#">导航5</a></li>
+        </ul>
+        <!--PC端-->
+        <ul class='nav2'>
+            <li><a href="#">导航1</a></li>
+            <li><a href="#">导航2</a></li>
+            <li><a href="#">导航3</a></li>
+            <li><a href="#">导航4</a></li>
+            <li><a href="#">导航5</a></li>
+        </ul>
+    </header> 
+    <script>
+        xx.onclick = function(){
+           yy.classList.toggle('active')  //如果是active 则block,不是的话是none
+        }
+    </script>
+</body>
+</html
