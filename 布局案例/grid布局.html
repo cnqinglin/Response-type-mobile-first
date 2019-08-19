@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>grid布局</title>
+    <style>
+    *{
+  margin: 0px ;
+  padding: 0px; 
+}
+body{
+  height:100vh;
+  background-color:#f6f6f6;
+  display:grid;
+  grid: 50px auto 50px/ 1fr 1fr 20%;
+  grid-column-gap:10px;
+  grid-row-gap:10px;
+}
+.header,
+.main,
+.aside,
+.footer{
+  display:grid;
+  justify-content:center;
+  align-items:center;
+}
+.header{
+  grid-column:1 / 4;
+  grid-row:1;
+  background:red;
+}
+.main{
+  grid-column: 2;
+  grid-row: 2 / 3;
+  background-color:green;
+}
+.aside{
+  grid-column:3;
+  grid-row:2 / 3;
+  background-color: blue;
+}
+.footer{
+  background-color:yellow;
+  grid-column:1 / 4;
+  
+}
+    </style>
+</head>
+<body>
+    <div class="header">header</div>
+    <div class="main">main</div>
+    <div class="aside">aside</div>
+    <div class="footer">footer</div>
+</body>
+</html>
